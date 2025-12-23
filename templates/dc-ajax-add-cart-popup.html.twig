@@ -1,0 +1,64 @@
+{% set classes = [
+  'ec-cart-popup-wrapper',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+
+  <div class="ec-cart-title">
+    {{ 'The item %title has been added to your cart.'|t({'%title': product_variation_entity.title.value}) }}
+  </div>
+
+  {% if carts %}
+    {% for cart in carts %}
+      {% if cart.items %}
+        <div class="ec-cart-items">
+          {% for item in cart.items %}
+            <div class="ec-cart-item">
+              <div class="ec-cart-item-left">
+                <h5>
+                  {{ item.title }}
+                </h5>
+                <p>
+                  {{ 'Qty:'|t }} {{ item.quantity }}
+                </p>
+              </div>
+              <div class="ec-cart-item-right">
+                <p>
+                  {{ item.total_price|commerce_price_format }}
+                </p>
+                <p>
+                  {{ item.unit_price|commerce_price_format }} {{ 'each'|t }}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+
+          {% if cart.total %}
+            <div class="ec-cart-total">
+              <div>
+                <span>
+                  {{ 'Subtotal:'|t }}
+                </span>
+                <span>
+                  {{ cart.total|commerce_price_format }}
+                </span>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <div>
+      <p>
+        {{ 'Your cart is empty.'|t }}
+      </p>
+    </div>
+  {% endif %}
+
+  <div>
+    <p>
+      <a href="{{ cart_url }}">{{ 'View your cart'|t }}</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+name: 'EC Cart View Enhancements'
+description: 'Provides an enhancements for cart modal'
+package: 'Commerce'
+type: module
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:commerce_cart
+  - drupal:commerce_order
+  - dc_ajax_add_cart:dc_ajax_add_cart
+  - dc_ajax_add_cart:dc_ajax_add_cart_popup
+
+version: '1.0.0'

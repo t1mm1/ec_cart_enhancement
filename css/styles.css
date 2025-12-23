@@ -1,0 +1,20 @@
+.ec-cart-popup-wrapper {
+  padding: 6px;
+}
+
+.ec-cart-title,
+.ec-cart-items {
+  margin-bottom: 1rem;
+}
+
+.ec-cart-item {
+  margin-bottom: 0.5rem;
+}
+
+.ec-cart-item-left {
+  margin-bottom: 0.25rem;
+}
+
+.ec-cart-item-right {
+
+}
